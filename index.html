@@ -1,0 +1,816 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ayub Ali Ashik</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: dark navy tailoring-room feel. Sticky header, woven-fabric hero with a brand slider, then achievements, a running-job timeline, skills, education, range and contact. */
+:root {
+  color-scheme: dark;
+  --bg: #0a1428;
+  --bg-deep: #060d1c;
+  --surface: #0f1d3a;
+  --surface-2: #14264a;
+  --line: rgba(160, 185, 235, 0.17);
+  --text: #eaeef7;
+  --muted: #9fadc8;
+  --brass-rgb: 213, 182, 127;
+  --stitch-rgb: 126, 162, 230;
+  --brass: rgb(var(--brass-rgb));
+  --stitch: rgb(var(--stitch-rgb));
+  --on-brass: #0a1428;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  background: var(--bg-deep); z-index: 40;
+}
+.wrap {
+  width: 100%; max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--brass); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--stitch); outline-offset: 3px; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+/* Header */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+  background: rgba(6, 13, 28, 0.82);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.bar.stuck { border-bottom-color: var(--line); background: rgba(6, 13, 28, 0.94); }
+.bar-in { display: flex; align-items: center; gap: 12px 28px; padding-block: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); margin-right: auto; min-width: 0; }
+.mark {
+  display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 auto;
+  border: 1.5px solid var(--brass); color: var(--brass);
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+}
+.brand-name { font-family: var(--font-display); font-stretch: 112%; font-weight: 700; font-size: 15px; letter-spacing: 0.01em; white-space: nowrap; }
+.nav { display: flex; gap: 6px; }
+.nav a {
+  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+  padding: 8px 12px; border-radius: 2px; transition: color 0.2s;
+}
+.nav a:hover { color: var(--text); }
+.nav a[aria-current="true"] { color: var(--brass); box-shadow: inset 0 -2px 0 var(--brass); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 14px/1 var(--font-body); text-decoration: none; cursor: pointer;
+  padding: 13px 20px; border-radius: 2px; border: 1.5px solid var(--brass);
+  background: transparent; color: var(--brass);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn:hover { background: rgba(var(--brass-rgb), 0.12); }
+.btn.solid { background: var(--brass); color: var(--on-brass); }
+.btn.solid:hover { background: #e3c892; transform: translateY(-1px); }
+.btn.small { padding: 10px 16px; }
+
+@media (max-width: 640px) {
+  .bar-in { flex-wrap: wrap; row-gap: 4px; padding-block: 10px 6px; }
+  .nav { order: 3; width: 100%; overflow-x: auto; margin-inline: -4px; padding-bottom: 4px; }
+  .nav a { white-space: nowrap; }
+  .brand-name { font-size: 14px; }
+}
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 100%); isolation: isolate; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 70% at 18% 42%, rgba(6, 13, 28, 0.78), transparent 70%),
+    linear-gradient(180deg, transparent 58%, var(--bg) 100%);
+}
+#weave { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+.deco { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.deco-item { position: absolute; will-change: transform; }
+.deco-line path, .deco-line circle { fill: none; stroke: rgba(var(--brass-rgb), 0.7); stroke-width: 1.4; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.deco-line .stitch { stroke: rgba(var(--stitch-rgb), 0.7); stroke-width: 1.2; stroke-dasharray: 3 4; animation: run 6s linear infinite; }
+.deco-line .grain { stroke: rgba(var(--brass-rgb), 0.55); }
+.deco text { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; fill: rgba(var(--brass-rgb), 0.75); }
+@keyframes run { to { stroke-dashoffset: -28; } }
+.piece-sleeve { top: 7%; right: 5%; width: clamp(110px, 15vw, 210px); transform: rotate(8deg); }
+.piece-panel { top: 24%; right: 19%; width: clamp(100px, 14vw, 200px); transform: rotate(-6deg); }
+.piece-collar { top: 53%; right: 6%; width: clamp(110px, 15vw, 210px); transform: rotate(-3deg); }
+.bt { width: clamp(26px, 3.2vw, 40px); }
+.bt-1 { top: 17%; right: 38%; }
+.bt-2 { top: 45%; right: 31%; }
+.bt-3 { top: 11%; right: 21%; }
+.thread { position: absolute; left: 0; right: 0; top: 52%; width: 100%; height: 120px; opacity: 0.5; }
+.thread path { fill: none; stroke: rgba(var(--stitch-rgb), 0.8); stroke-width: 1.2; stroke-dasharray: 6 9; vector-effect: non-scaling-stroke; animation: run 5s linear infinite; }
+@media (max-width: 700px) { .deco { opacity: 0.5; } .thread { top: 40%; } }
+
+.hero-in { position: relative; z-index: 3; padding-block: clamp(56px, 9vw, 112px) 48px; display: grid; gap: 22px; }
+.eyebrow { margin: 0; display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ""; width: 36px; height: 1.5px; background: var(--brass); }
+.hero h1 {
+  margin: 0; font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
+  font-size: clamp(2.5rem, 9vw, 6rem); line-height: 1; letter-spacing: -0.025em; text-wrap: balance;
+}
+.hero h1 .w { display: inline-block; }
+.role { margin: 0; max-width: 24ch; font-family: var(--font-serif); font-style: italic; font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.12; color: var(--text); }
+.role em { color: var(--brass); }
+.lede { margin: 0; max-width: 56ch; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.1rem); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+
+.worked { position: relative; z-index: 3; padding-bottom: 6px; }
+.worked-head { display: flex; align-items: center; gap: 16px; padding-bottom: 6px; }
+.worked-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.track { display: flex; width: max-content; animation: slide 48s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+.track ul { display: flex; margin: 0; padding: 0; list-style: none; }
+
+/* Supply chain row in the hero */
+.chain { position: relative; margin-top: 22px; max-width: 920px; }
+.chain-list { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 16px; margin: 0; padding: 0; list-style: none; }
+.chain-node { display: grid; gap: 4px; align-content: start; justify-items: start; min-width: 0; padding-right: 8px; }
+.chain-ico {
+  display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 8px;
+  background: rgba(6, 13, 28, 0.88); border: 1px solid rgba(var(--brass-rgb), 0.45);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.chain-node:hover .chain-ico { border-color: var(--brass); transform: translateY(-3px); }
+.chain-ico svg { width: 40px; height: 40px; overflow: visible; }
+.chain-ico path { fill: none; stroke: var(--brass); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.chain-ico path.alt { stroke: var(--stitch); }
+.chain-name { color: var(--brass); }
+.chain-sub { font-size: 14px; line-height: 1.4; color: var(--muted); }
+.chain-line {
+  position: absolute; left: 36px; right: calc(25% - 36px); top: 35px; height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(var(--stitch-rgb), 0.75) 0 8px, transparent 8px 14px);
+  background-size: 14px 2px; animation: flow 1.2s linear infinite;
+}
+.chain-dot { position: absolute; top: -4px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--brass); box-shadow: 0 0 14px 3px rgba(var(--brass-rgb), 0.6); transform: translateX(-50%); }
+@keyframes flow { to { background-position: 14px 0; } }
+@media (max-width: 720px) {
+  .chain-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+  .chain-line { display: none; }
+}
+.track li { display: flex; align-items: center; padding-block: 16px; margin-right: 28px; }
+.plate {
+  display: grid; place-items: center; height: 56px; padding: 0 20px; overflow: hidden;
+  background: #eef1f8; border-radius: 6px; opacity: 0.9;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.plate.own { padding: 0; background: transparent; }
+.plate img { display: block; height: 28px; width: auto; max-width: none; }
+.track li:hover .plate { opacity: 1; transform: translateY(-3px); box-shadow: 0 10px 26px -10px rgba(var(--brass-rgb), 0.55); }
+.plate .l-polo { height: 42px; }
+.plate .l-bass { height: 40px; }
+.plate .l-hering { height: 42px; }
+.plate .l-fala { height: 34px; }
+.plate .l-pc { height: 24px; }
+.plate .l-ted { height: 30px; }
+.plate .l-next { height: 26px; }
+.plate .l-mat { height: 56px; }
+.plate .l-per { height: 56px; }
+.nm {
+  display: grid; place-items: center; height: 56px; padding: 0 22px; border: 1px dashed rgba(var(--brass-rgb), 0.5); border-radius: 6px;
+  font-family: var(--font-display); font-stretch: 112%; font-weight: 700; letter-spacing: 0.02em; font-size: 1.2rem;
+  color: var(--muted); white-space: nowrap; transition: color 0.2s, border-color 0.2s;
+}
+.track li:hover .nm { color: var(--text); border-color: var(--brass); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+.tape {
+  position: relative; z-index: 3; height: 16px; margin-top: 4px;
+  background-image:
+    linear-gradient(90deg, rgba(var(--brass-rgb), 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--brass-rgb), 0.3) 1px, transparent 1px);
+  background-size: 40px 14px, 8px 7px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: repeat-x;
+  border-bottom: 1px solid rgba(var(--brass-rgb), 0.5);
+  animation: tape 8s linear infinite;
+}
+@keyframes tape { to { background-position: -40px 100%, -40px 100%; } }
+
+/* Sections */
+.sec { padding-block: clamp(64px, 9vw, 108px); border-top: 1.5px dashed var(--line); scroll-margin-top: 64px; }
+#achievements { border-top: 0; }
+@media (max-width: 640px) { .sec { scroll-margin-top: 104px; } }
+.sec-head { display: grid; gap: 10px; margin-bottom: clamp(28px, 5vw, 48px); }
+.sec-head .mono { color: var(--brass); }
+.sec h2 { margin: 0; font-family: var(--font-display); font-stretch: 112%; font-weight: 700; font-size: clamp(1.9rem, 4.4vw, 3rem); line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance; }
+.sec-sub { margin: 0; max-width: 60ch; color: var(--muted); }
+h3 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; line-height: 1.25; text-wrap: balance; }
+
+/* Achievements */
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .tiles { grid-template-columns: minmax(0, 1fr); } }
+.tile {
+  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line); padding: 26px 24px; display: grid; gap: 6px; align-content: start;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.tile:hover { border-color: rgba(var(--brass-rgb), 0.55); transform: translateY(-3px); }
+.num { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -0.03em; color: var(--brass); font-variant-numeric: tabular-nums; }
+.tile .what { font-weight: 600; }
+.tile .where { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); }
+.wins { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+@media (max-width: 900px) { .wins { grid-template-columns: minmax(0, 1fr); } }
+.win { padding: 20px 22px; border-left: 2px solid var(--brass); background: rgba(var(--stitch-rgb), 0.06); }
+.win p { margin: 0; }
+.win .mono { display: block; margin-top: 8px; }
+
+/* Experience timeline */
+.tl { position: relative; padding-left: 44px; display: grid; gap: 22px; }
+.tl::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.tl-prog { position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--brass); transform-origin: top; }
+.job { position: relative; padding: 24px 26px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 10px; min-width: 0; }
+.job::before {
+  content: ""; position: absolute; left: -43px; top: 28px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--muted);
+}
+.job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: baseline; }
+.job .when { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted); }
+.job .org { margin: 0; color: var(--muted); font-size: 14px; }
+.plain { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.plain li { padding-left: 18px; position: relative; }
+.plain li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 8px; height: 1.5px; background: var(--brass); }
+.job.live {
+  background: linear-gradient(135deg, rgba(var(--brass-rgb), 0.13), rgba(var(--stitch-rgb), 0.07) 60%, var(--surface));
+  border-color: rgba(var(--brass-rgb), 0.6);
+  box-shadow: 0 0 0 1px rgba(var(--brass-rgb), 0.12), 0 18px 50px -18px rgba(var(--brass-rgb), 0.35);
+}
+.job.live::before { background: var(--brass); border-color: var(--brass); animation: pulse 2.2s ease-out infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(var(--brass-rgb), 0.6); } 100% { box-shadow: 0 0 0 14px rgba(var(--brass-rgb), 0); } }
+.live-badge { display: inline-flex; align-items: center; gap: 8px; margin-left: 10px; padding: 3px 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--brass); color: var(--on-brass); vertical-align: 3px; }
+.live-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--on-brass); animation: blink 1.4s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+.sub { padding-left: 16px; border-left: 2px solid var(--line); display: grid; gap: 2px; margin-top: 4px; }
+.sub .t { font-weight: 600; }
+@media (max-width: 520px) { .tl { padding-left: 34px; } .job { padding: 20px 18px; } .job::before { left: -33px; } .tl::before, .tl-prog { left: 6px; } .job::before { top: 24px; } }
+
+/* Skills */
+.skill-big { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .skill-big { grid-template-columns: minmax(0, 1fr); } }
+.skill-big div {
+  padding: 26px 24px 28px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--brass);
+  font-family: var(--font-display); font-stretch: 112%; font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.15;
+}
+.subhead { margin: 36px 0 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.chips li { padding: 9px 15px; border: 1px solid var(--line); background: rgba(var(--stitch-rgb), 0.07); font-size: 14px; font-weight: 500; transition: border-color 0.2s, background 0.2s; }
+.chips li:hover { border-color: rgba(var(--brass-rgb), 0.6); background: rgba(var(--brass-rgb), 0.1); }
+.chips.cert li { border-color: rgba(var(--brass-rgb), 0.45); }
+
+/* Education */
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .edu { grid-template-columns: minmax(0, 1fr); } }
+.edu article { padding: 26px 24px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.edu .when { font-family: var(--font-mono); font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+.edu p { margin: 0; color: var(--muted); }
+
+/* Range & records */
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 36px; align-items: start; }
+@media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } }
+.two h3 { margin-bottom: 14px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); }
+table { border-collapse: collapse; width: 100%; min-width: 440px; }
+th, td { text-align: left; vertical-align: top; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--bg-deep); }
+td:first-child { font-weight: 600; white-space: nowrap; color: var(--brass); }
+@media (max-width: 520px) { td:first-child { white-space: normal; } }
+
+/* Contact */
+.contact { padding: clamp(28px, 5vw, 52px); background: linear-gradient(140deg, var(--surface-2), var(--surface) 70%); border: 1px solid rgba(var(--brass-rgb), 0.4); display: grid; gap: 18px; }
+.contact p { margin: 0; max-width: 54ch; color: var(--muted); }
+.mail { font-family: var(--font-mono); font-size: clamp(1rem, 2.6vw, 1.35rem); color: var(--text); user-select: all; overflow-wrap: anywhere; }
+.row { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+.copied { min-height: 1.3em; font-size: 13px; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding-block: 22px 40px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .marquee { overflow-x: auto; }
+}
+</style>
+
+<header class="bar" id="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top" aria-label="Back to top"><span class="mark">AA</span><span class="brand-name">Ayub Ali Ashik</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </nav>
+    <a class="btn solid small" href="#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <canvas id="weave" aria-hidden="true"></canvas>
+
+    <div class="deco" aria-hidden="true">
+      <svg class="thread" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 70 C 200 10, 400 120, 600 70 S 1000 10, 1200 70"/></svg>
+
+      <svg class="deco-item deco-line piece-sleeve" data-depth="26" viewBox="0 0 200 250">
+        <path pathLength="1" d="M10 205 C4 125 38 45 100 18 C162 45 196 125 190 205 Q100 238 10 205 Z"/>
+        <path class="stitch" d="M10 205 C4 125 38 45 100 18 C162 45 196 125 190 205 Q100 238 10 205 Z" transform="translate(10 12) scale(0.9)"/>
+        <path pathLength="1" class="grain" d="M100 72 V190 M94 84 L100 70 L106 84 M94 178 L100 192 L106 178 M100 18 V30"/>
+        <text x="62" y="246">SLEEVE · CUT 2</text>
+      </svg>
+
+      <svg class="deco-item deco-line piece-panel" data-depth="14" viewBox="0 0 220 320">
+        <path pathLength="1" d="M62 10 L158 10 C166 48 188 70 212 84 L202 290 L18 290 L8 84 C32 70 54 48 62 10 Z"/>
+        <path class="stitch" d="M62 10 L158 10 C166 48 188 70 212 84 L202 290 L18 290 L8 84 C32 70 54 48 62 10 Z" transform="translate(11 15) scale(0.9)"/>
+        <path pathLength="1" class="grain" d="M110 70 V250 M104 82 L110 68 L116 82 M104 238 L110 252 L116 238 M62 10 V20 M158 10 V20 M110 290 V280"/>
+        <text x="60" y="312">FRONT · CUT 1</text>
+      </svg>
+
+      <svg class="deco-item deco-line piece-collar" data-depth="32" viewBox="0 0 200 110">
+        <path pathLength="1" d="M10 12 C62 56 138 56 190 12 L180 62 C132 90 68 90 20 62 Z"/>
+        <path class="stitch" d="M10 12 C62 56 138 56 190 12 L180 62 C132 90 68 90 20 62 Z" transform="translate(10 6) scale(0.9)"/>
+        <text x="58" y="106">COLLAR · CUT 2</text>
+      </svg>
+
+      <svg class="deco-item deco-line bt bt-1" data-depth="40" viewBox="0 0 40 40"><circle pathLength="1" cx="20" cy="20" r="18"/><circle pathLength="1" cx="20" cy="20" r="12"/><circle cx="15" cy="15" r="2" style="stroke-dasharray:none"/><circle cx="25" cy="15" r="2" style="stroke-dasharray:none"/><circle cx="15" cy="25" r="2" style="stroke-dasharray:none"/><circle cx="25" cy="25" r="2" style="stroke-dasharray:none"/></svg>
+      <svg class="deco-item deco-line bt bt-2" data-depth="22" viewBox="0 0 40 40"><circle pathLength="1" cx="20" cy="20" r="18"/><circle pathLength="1" cx="20" cy="20" r="12"/><circle cx="17" cy="20" r="2" style="stroke-dasharray:none"/><circle cx="23" cy="20" r="2" style="stroke-dasharray:none"/></svg>
+      <svg class="deco-item deco-line bt bt-3" data-depth="48" viewBox="0 0 40 40"><circle pathLength="1" cx="20" cy="20" r="18"/><circle pathLength="1" cx="20" cy="20" r="12"/><circle cx="15" cy="15" r="2" style="stroke-dasharray:none"/><circle cx="25" cy="15" r="2" style="stroke-dasharray:none"/><circle cx="15" cy="25" r="2" style="stroke-dasharray:none"/><circle cx="25" cy="25" r="2" style="stroke-dasharray:none"/></svg>
+    </div>
+
+    <div class="wrap hero-in">
+      <p class="eyebrow mono">Merchandiser · Woven &amp; tailoring · Dhaka</p>
+      <h1 aria-label="Ayub Ali Ashik"><span class="w">Ayub</span> <span class="w">Ali</span> <span class="w">Ashik</span></h1>
+      <p class="role">Running woven bulk programs, from <em>tech pack</em> to final shipment.</p>
+      <p class="lede">B.Sc. in Fashion Design &amp; Technology with four years in apparel merchandising. Sourcing, costing, sample approval and shipment tracking for international buyers, currently at Babylon Group.</p>
+      <div class="cta">
+        <a class="btn solid" href="#experience">View experience</a>
+        <a class="btn" href="https://www.linkedin.com/in/ayub-ali-ashik" target="_blank" rel="noopener">LinkedIn profile</a>
+      </div>
+
+      <div class="chain">
+        <div class="chain-line" aria-hidden="true"><i class="chain-dot"></i></div>
+        <ul class="chain-list" aria-label="Supply chain steps">
+          <li class="chain-node">
+            <span class="chain-ico"><svg viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M6 12 H28 V34 H6 Z"/>
+              <path pathLength="1" d="M6 18 L12 14 L18 18 L24 14 L28 16"/>
+              <path pathLength="1" class="alt" d="M42 30 A9 9 0 1 1 24 30 A9 9 0 1 1 42 30 Z"/>
+              <path pathLength="1" class="alt" d="M39.5 36.5 L45 43"/>
+            </svg></span>
+            <span class="chain-name mono">Sourcing</span>
+            <span class="chain-sub">Fabric, trims and accessories from China and Bangladesh</span>
+          </li>
+          <li class="chain-node">
+            <span class="chain-ico"><svg viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M8 12 H40 V41 H8 Z"/>
+              <path pathLength="1" d="M8 20 H40"/>
+              <path pathLength="1" d="M16 7 V15 M32 7 V15"/>
+              <path pathLength="1" class="alt" d="M17 31 L22 36 L32 25"/>
+            </svg></span>
+            <span class="chain-name mono">Booking</span>
+            <span class="chain-sub">Orders booked and followed up against the production schedule</span>
+          </li>
+          <li class="chain-node">
+            <span class="chain-ico"><svg viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M7 6 V41 H43"/>
+              <path pathLength="1" d="M14 41 V30 H20 V41 M24 41 V20 H30 V41 M34 41 V26 H40 V41"/>
+              <path pathLength="1" class="alt" d="M11 22 L21 12 L28 16 L41 5"/>
+            </svg></span>
+            <span class="chain-name mono">Analysis</span>
+            <span class="chain-sub">Costing and negotiation to target FOB</span>
+          </li>
+          <li class="chain-node">
+            <span class="chain-ico"><svg viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M4 33 H44 L39 42 H9 Z"/>
+              <path pathLength="1" d="M9 33 V22 H21 V33 M21 33 V22 H33 V33"/>
+              <path pathLength="1" d="M15 22 V11 H27 V22"/>
+              <path pathLength="1" class="alt" d="M36 33 V15 L44 24"/>
+            </svg></span>
+            <span class="chain-name mono">Shipment</span>
+            <span class="chain-sub">T&amp;A tracking from PO confirmation to final shipment</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="worked" aria-label="Brands worked with">
+      <div class="wrap worked-head"><span class="mono">Work with</span></div>
+      <div class="marquee">
+        <div class="track">
+          <ul><li><span class="plate"><img class="l-polo" src="logos/us-polo-assn.svg" alt="U.S. Polo Assn." height="40"></span></li><li><span class="plate"><img class="l-fala" src="logos/falabella.svg" alt="Falabella" height="40"></span></li><li><span class="plate"><img class="l-pc" src="logos/peek-cloppenburg.svg" alt="GMS+ (P&amp;C Germany)" height="40"></span></li><li><span class="plate"><img class="l-bass" src="logos/bass-pro.svg" alt="Bass Pro" height="40"></span></li><li><span class="plate own"><img class="l-per" src="logos/pernambucanas.svg" alt="Pernambucanas" height="40"></span></li><li><span class="plate"><img class="l-hering" src="logos/cia-hering.svg" alt="Cia. Hering" height="40"></span></li><li><span class="plate"><img class="l-ted" src="logos/ted-baker.svg" alt="Ted Baker" height="40"></span></li><li><span class="plate own"><img class="l-mat" src="logos/matalan.svg" alt="Matalan" height="40"></span></li><li><span class="plate"><img class="l-next" src="logos/next.svg" alt="Next" height="40"></span></li></ul>
+          <ul aria-hidden="true"><li><span class="plate"><img class="l-polo" src="logos/us-polo-assn.svg" alt="" height="40"></span></li><li><span class="nm">Duchamp</span></li><li><span class="nm">Ochnik</span></li><li><span class="plate"><img class="l-fala" src="logos/falabella.svg" alt="" height="40"></span></li><li><span class="plate"><img class="l-pc" src="logos/peek-cloppenburg.svg" alt="" height="40"></span></li><li><span class="plate"><img class="l-bass" src="logos/bass-pro.svg" alt="" height="40"></span></li><li><span class="plate own"><img class="l-per" src="logos/pernambucanas.svg" alt="" height="40"></span></li><li><span class="plate"><img class="l-hering" src="logos/cia-hering.svg" alt="" height="40"></span></li><li><span class="plate"><img class="l-ted" src="logos/ted-baker.svg" alt="" height="40"></span></li><li><span class="plate own"><img class="l-mat" src="logos/matalan.svg" alt="" height="40"></span></li><li><span class="plate"><img class="l-next" src="logos/next.svg" alt="" height="40"></span></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="tape" aria-hidden="true"></div>
+  </section>
+
+  <section class="sec" id="achievements">
+    <div class="wrap">
+      <div class="sec-head" data-rise>
+        <span class="mono">Business achievements</span>
+        <h2>What the work has delivered</h2>
+        <p class="sec-sub">Figures from his current and previous merchandising roles.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile" data-rise><span class="num" data-count="2" data-pre="$" data-suf="M">$2M</span><span class="what">Woven bulk business managed</span><span class="where">Babylon Group</span></div>
+        <div class="tile" data-rise><span class="num" data-count="100" data-suf="%">100%</span><span class="what">On-time shipment, tracked on T&amp;A</span><span class="where">Babylon Group</span></div>
+        <div class="tile" data-rise><span class="num" data-count="70" data-suf="+">70+</span><span class="what">Styles handled per season</span><span class="where">Babylon Group</span></div>
+        <div class="tile" data-rise><span class="num" data-count="65" data-suf="+">65+</span><span class="what">Active styles documented per season</span><span class="where">Posh Garments</span></div>
+        <div class="tile" data-rise><span class="num" data-count="30" data-suf="+">30+</span><span class="what">Tailoring styles per season, tech pack to sealed sample</span><span class="where">FCI Group</span></div>
+        <div class="tile" data-rise><span class="num" data-count="11">11</span><span class="what">Buyer brands worked with</span><span class="where">ZM Textile to Babylon Group</span></div>
+      </div>
+      <div class="wins">
+        <div class="win" data-rise><p>Consistently secured supplier pricing at target FOB.</p><span class="mono">FCI Group</span></div>
+        <div class="win" data-rise><p>Resolved production and delivery delays quickly, protecting shipment dates and buyer relationships.</p><span class="mono">Babylon Group</span></div>
+        <div class="win" data-rise><p>Helped sustain relationships with Ochnik, GMS+, Pernambucanas and Cia. Hering.</p><span class="mono">Posh Garments</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="wrap">
+      <div class="sec-head" data-rise>
+        <span class="mono">Experience</span>
+        <h2>Four years, from fabric follow-up to full bulk programs</h2>
+      </div>
+      <div class="tl">
+        <div class="tl-prog" aria-hidden="true"></div>
+
+        <article class="job live" data-rise>
+          <div class="job-head">
+            <h3>Merchandiser<span class="live-badge"><i></i>Running now</span></h3>
+            <span class="when">June 2026 – Present</span>
+          </div>
+          <p class="org">Babylon Group, Dhaka</p>
+          <ul class="plain">
+            <li>Manages a $2M woven bulk business for U.S. Polo Assn., Duchamp, Ochnik and Falabella, covering 70+ styles per season under a senior merchandiser.</li>
+            <li>Handles men's and women's woven wear: shirts, trousers, shorts, dresses and lightweight denim.</li>
+            <li>Sources and books fabric and trims with suppliers in China and Bangladesh, keeping materials in line with production schedules.</li>
+            <li>Coordinates bulk sample approvals and tracks orders against T&amp;A from PO confirmation to final shipment, achieving 100% on-time shipment.</li>
+            <li>Resolves production and delivery delays with timely decisions.</li>
+            <li>Works with buyer QA on inspections and compliance, and prepares LC and shipping documents for export.</li>
+            <li>Maintains BOMs, trim cards and approval records so bulk production matches approved specs.</li>
+          </ul>
+        </article>
+
+        <article class="job" data-rise>
+          <div class="job-head">
+            <h3>Merchandiser</h3>
+            <span class="when">Sept 2025 – May 2026</span>
+          </div>
+          <p class="org">FCI Group, DEPZ, Savar</p>
+          <ul class="plain">
+            <li>Ran end-to-end development for Women's Tailoring (blazers, jackets, tailored bottoms), from tech pack to sealed sample, across 30+ styles per season for GMS+ and Bass Pro.</li>
+            <li>Sourced and approved fabrics, interlinings, trims and accessories from local and international suppliers, with full BOM, trim card and approval records.</li>
+            <li>Negotiated pricing and lead times, consistently meeting target FOB.</li>
+            <li>Tracked orders from programming to shipment with accurate T&amp;A, working with production, QA and logistics.</li>
+            <li>Managed fit comments, sealing approvals, and washcare and embellishment processes to meet buyer technical requirements.</li>
+          </ul>
+        </article>
+
+        <article class="job" data-rise>
+          <div class="job-head">
+            <h3>Assistant Merchandiser</h3>
+            <span class="when">Oct 2023 – Nov 2025</span>
+          </div>
+          <p class="org">Posh Garments Ltd</p>
+          <ul class="plain">
+            <li>Handled development and bulk execution of light woven products (women's blouses, dresses, skirts; men's and women's shirts) for four buyers across Europe and South America.</li>
+            <li>Coordinated sourcing, booking, approval and follow-up for fabric, trims and accessories with local and international suppliers.</li>
+            <li>Kept BOMs, fabric swatches, trim cards and buyer approvals for 65+ active styles per season.</li>
+            <li>Supported price and delivery negotiations, helping sustain relationships with Ochnik (Poland), GMS+ (P&amp;C Germany), Pernambucanas and Cia. Hering (Brazil).</li>
+          </ul>
+          <div class="sub">
+            <span class="t">Junior Merchandiser · July 2023 – Sept 2023</span>
+            <span>Supported women's wear development for U.S. Polo Assn. on the development merchandising team: sample tracking, trim sourcing, documentation and reading tech packs.</span>
+          </div>
+        </article>
+
+        <article class="job" data-rise>
+          <div class="job-head">
+            <h3>Junior Merchandiser</h3>
+            <span class="when">June 2022 – July 2023</span>
+          </div>
+          <p class="org">ZM Textile, Bangladesh</p>
+          <ul class="plain">
+            <li>Managed bulk and development fabric follow-up for on-time delivery and cost efficiency.</li>
+            <li>Worked with Ted Baker, Matalan and Next to meet their merchandising needs.</li>
+            <li>Built supplier relationships that streamlined costing and improved product quality.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <div class="sec-head" data-rise>
+        <span class="mono">Top skills</span>
+        <h2>Supply chain management as per T&A</h2>
+      </div>
+      <div class="skill-big">
+        <div data-rise>Apparel merchandising</div>
+        <div data-rise>Slightly Technical Knowledge</div>
+        <div data-rise>On time decision making</div>
+      </div>
+      <h3 class="subhead" data-rise>Day-to-day toolkit</h3>
+      <ul class="chips" data-rise>
+        <li>Fabric &amp; trim sourcing</li><li>Supplier negotiation</li><li>Costing to target FOB</li><li>T&amp;A tracking</li><li>BOMs &amp; trim cards</li><li>Sample approvals</li><li>Buyer QA &amp; compliance</li><li>LC &amp; shipping documents</li>
+      </ul>
+      <h3 class="subhead" data-rise>Certifications</h3>
+      <ul class="chips cert" data-rise>
+        <li>Sales Negotiation</li><li>Strategic Thinking</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="education">
+    <div class="wrap">
+      <div class="sec-head" data-rise>
+        <span class="mono">Education</span>
+        <h2>Trained in fashion design and technology</h2>
+      </div>
+      <div class="edu">
+        <article data-rise>
+          <h3>B.Sc. in Fashion Design &amp; Technology</h3>
+          <p>BGMEA University of Fashion &amp; Technology</p>
+          <span class="when">June 2015 – December 2019</span>
+        </article>
+        <article data-rise>
+          <h3>High School Diploma, Business / Commerce</h3>
+          <p>Milestone College</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="range">
+    <div class="wrap">
+      <div class="sec-head" data-rise>
+        <span class="mono">Range &amp; records</span>
+        <h2>What he makes, and what he keeps on file</h2>
+      </div>
+      <div class="two">
+        <div data-rise>
+          <h3>Product range</h3>
+          <ul class="plain">
+            <li>Women's tailoring: blazers, jackets, tailored bottoms</li>
+            <li>Men's and women's wovens: shirts, trousers, shorts, dresses, lightweight denim</li>
+            <li>Women's blouses and skirts</li>
+          </ul>
+        </div>
+        <div data-rise>
+          <h3>Records he keeps</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Document</th><th scope="col">Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>Tech pack</td><td>Starting point for development, carried through to the sealed sample.</td></tr>
+                <tr><td>BOM</td><td>Bill of materials per style, so bulk production matches approved specs.</td></tr>
+                <tr><td>Trim cards</td><td>Approved trims and accessories, filed with their approvals.</td></tr>
+                <tr><td>Fabric swatches</td><td>Reference swatches and approval records for 65+ active styles per season.</td></tr>
+                <tr><td>T&amp;A calendar</td><td>Order progress from PO confirmation to shipment.</td></tr>
+                <tr><td>LC &amp; shipping set</td><td>Export documents prepared for smooth clearance.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="sec-head" data-rise>
+        <span class="mono">Contact</span>
+        <h2>Start a conversation</h2>
+      </div>
+      <div class="contact" data-rise>
+        <p>For sourcing, development and bulk merchandising enquiries, write to Ayub directly.</p>
+        <div class="row">
+          <a class="mail" id="mail-text" href="mailto:ashikkhan2415@outlook.com">ashikkhan2415@outlook.com</a>
+          <button class="btn" id="copy-mail" type="button">Copy email</button>
+        </div>
+        <div class="copied" id="copy-note" role="status" aria-live="polite"></div>
+        <div><a href="https://www.linkedin.com/in/ayub-ali-ashik" target="_blank" rel="noopener">linkedin.com/in/ayub-ali-ashik</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mono">Ayub Ali Ashik</span>
+    <span class="mono">Merchandiser · Dhaka</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = !!window.gsap;
+  var hasST = hasG && !!window.ScrollTrigger;
+  if (hasST) { gsap.registerPlugin(ScrollTrigger); }
+
+  /* Header: border once scrolled, active section link */
+  var bar = document.getElementById('bar');
+  function onScroll() { bar.classList.toggle('stuck', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = {};
+  document.querySelectorAll('.nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+        if (links[en.target.id]) links[en.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    ['experience', 'skills', 'education'].forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+  }
+
+  /* Smooth in-page links */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      var el = id ? document.getElementById(id) : null;
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  /* Woven fabric canvas */
+  var hero = document.getElementById('top');
+  var cv = document.getElementById('weave');
+  var ctx = cv.getContext('2d');
+  var cs = getComputedStyle(document.documentElement);
+  var brass = cs.getPropertyValue('--brass-rgb').trim() || '213,182,127';
+  var stitch = cs.getPropertyValue('--stitch-rgb').trim() || '126,162,230';
+  var W = 0, H = 0, DPR = 1, tx = 0, ty = 0, sx = 0, sy = 0, vis = true;
+
+  function resize() {
+    var r = hero.getBoundingClientRect();
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+    tx = sx = W * 0.7; ty = sy = H * 0.35;
+    frame(true);
+  }
+
+  function frame(force) {
+    if (!vis && force !== true) return;
+    var t = reduce ? 0 : performance.now();
+    sx += (tx - sx) * 0.06; sy += (ty - sy) * 0.06;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    var gap = W < 640 ? 13 : 12, step = 24, i = 0, x, y, d, dx, dy, pull;
+
+    ctx.lineCap = 'round';
+    for (y = 0; y <= H; y += gap, i++) {
+      var strongH = i % 8 === 0;
+      ctx.beginPath();
+      for (x = 0; x <= W + step; x += step) {
+        d = Math.sin(x * 0.007 + t * 0.00055 + y * 0.009) * 5 + Math.sin(y * 0.011 - t * 0.0004) * 3;
+        dx = x - sx; dy = y - sy;
+        pull = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 260);
+        d += (sy - y) * pull * 0.07;
+        if (x === 0) ctx.moveTo(x, y + d); else ctx.lineTo(x, y + d);
+      }
+      ctx.strokeStyle = strongH ? 'rgba(' + brass + ',0.24)' : 'rgba(' + stitch + ',0.11)';
+      ctx.lineWidth = strongH ? 1.4 : 1;
+      ctx.stroke();
+    }
+    i = 0;
+    for (x = 0; x <= W; x += gap, i++) {
+      var strongV = i % 8 === 0;
+      ctx.beginPath();
+      for (y = 0; y <= H + step; y += step) {
+        d = Math.sin(y * 0.007 + t * 0.0005 + x * 0.009) * 5 + Math.sin(x * 0.011 + t * 0.00035) * 3;
+        dx = x - sx; dy = y - sy;
+        pull = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 260);
+        d += (sx - x) * pull * 0.07;
+        if (y === 0) ctx.moveTo(x + d, y); else ctx.lineTo(x + d, y);
+      }
+      ctx.strokeStyle = strongV ? 'rgba(' + brass + ',0.2)' : 'rgba(' + stitch + ',0.09)';
+      ctx.lineWidth = strongV ? 1.4 : 1;
+      ctx.stroke();
+    }
+    var g = ctx.createRadialGradient(sx, sy, 0, sx, sy, 340);
+    g.addColorStop(0, 'rgba(' + brass + ',0.11)');
+    g.addColorStop(1, 'rgba(' + brass + ',0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  if ('ResizeObserver' in window) { new ResizeObserver(resize).observe(hero); } else { window.addEventListener('resize', resize); }
+  resize();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }, { threshold: 0 }).observe(hero);
+  }
+  hero.addEventListener('pointermove', function (e) {
+    var r = hero.getBoundingClientRect();
+    tx = e.clientX - r.left; ty = e.clientY - r.top;
+  });
+  if (!reduce) {
+    if (hasG) { gsap.ticker.add(function () { frame(); }); }
+    else { (function loop() { frame(); requestAnimationFrame(loop); })(); }
+  }
+
+  /* Pattern pieces and trims: parallax and float */
+  var items = Array.prototype.slice.call(document.querySelectorAll('.deco-item'));
+  if (hasG && !reduce) {
+    var fine = window.matchMedia('(pointer: fine)').matches;
+    items.forEach(function (el) {
+      var depth = parseFloat(el.getAttribute('data-depth')) || 20;
+      gsap.to(el, { y: '+=' + (8 + depth * 0.35), rotation: '+=' + (el.classList.contains('bt') ? 18 : 2), duration: gsap.utils.random(3.2, 5.4), ease: 'sine.inOut', yoyo: true, repeat: -1, delay: gsap.utils.random(0, 1.5) });
+      if (fine) {
+        var qx = gsap.quickTo(el, 'x', { duration: 1.2, ease: 'power3.out' });
+        var qy = gsap.quickTo(el, 'y', { duration: 1.2, ease: 'power3.out' });
+        el._qx = qx; el._qy = qy; el._depth = depth;
+      }
+    });
+    if (fine) {
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        var nx = (e.clientX - r.left) / r.width - 0.5;
+        var ny = (e.clientY - r.top) / r.height - 0.5;
+        items.forEach(function (el) { if (el._qx) { el._qx(-nx * el._depth); } });
+      });
+    }
+
+    /* Intro */
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from('.hero .w', { yPercent: 35, duration: 1, stagger: 0.12 })
+      .from('.hero .eyebrow, .hero .role, .hero .lede, .hero .cta', { y: 22, duration: 0.8, stagger: 0.1 }, '-=0.65')
+      .from('.deco-line path:not(.stitch), .deco-line circle', { strokeDashoffset: 1, duration: 2.4, stagger: 0.12, ease: 'power2.inOut' }, 0.1)
+      .from('.chain-node', { y: 24, duration: 0.8, stagger: 0.12 }, '-=1.5')
+      .from('.chain-ico path', { strokeDashoffset: 1, duration: 1.4, stagger: 0.08, ease: 'power2.inOut' }, '-=1.4')
+      .from('.worked', { y: 28, duration: 0.9 }, '-=1.2');
+    gsap.fromTo('.chain-dot', { left: '0%' }, { left: '100%', duration: 4.5, ease: 'none', repeat: -1, repeatDelay: 0.4 });
+  }
+
+  /* Scroll reveals, counters, timeline progress */
+  if (hasST && !reduce) {
+    gsap.utils.toArray('[data-rise]').forEach(function (el) {
+      gsap.from(el, { y: 34, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+    gsap.utils.toArray('[data-count]').forEach(function (el) {
+      var to = parseFloat(el.getAttribute('data-count')), pre = el.getAttribute('data-pre') || '', suf = el.getAttribute('data-suf') || '';
+      ScrollTrigger.create({
+        trigger: el, start: 'top 92%', once: true,
+        onEnter: function () {
+          var o = { v: 0 };
+          el.textContent = pre + '0' + suf;
+          gsap.to(o, { v: to, duration: 1.6, ease: 'power2.out', onUpdate: function () { el.textContent = pre + Math.round(o.v) + suf; } });
+        }
+      });
+    });
+    gsap.fromTo('.tl-prog', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.tl', start: 'top 65%', end: 'bottom 70%', scrub: true } });
+  }
+
+  /* Copy email */
+  var btn = document.getElementById('copy-mail');
+  var note = document.getElementById('copy-note');
+  var textEl = document.getElementById('mail-text');
+  function selectText() {
+    try { var r = document.createRange(); r.selectNodeContents(textEl); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    var value = textEl.textContent.trim();
+    var done = function () { note.textContent = 'Email address copied.'; };
+    var fail = function () { selectText(); note.textContent = 'Address selected. Press Ctrl+C or Cmd+C to copy.'; };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(value).then(done, fail); }
+      else { fail(); }
+    } catch (e) { fail(); }
+  });
+})();
+</script>
+
+</body></html>
